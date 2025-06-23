@@ -1,0 +1,53 @@
+import cv2
+import numpy as np
+
+#reading an simple image from the folder
+
+img= cv2.imread('Image.jpg')
+
+
+#converting the image to grayscale
+
+im_grwy= cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+
+
+#Resizing the image
+
+Resized=cv2.resize(img,(img.shape[1]//2,img.shape[0]//2))
+
+#Fliping the image
+#0 can be replaced by 1 or -1 for horizontal flip
+
+newimg=cv2.flip(img,0)
+
+#Crop format of image
+
+imagecrop=img[:,300:600]
+
+#To Save any Image Directly to Directory
+
+#cv2.imwrite('resized sidhu.jpg',Resized)    #uncomment for use
+
+
+#getting the shapes(rows and columns) of images
+print("resolution of main image= ",img.shape)
+print("resolution of Grayscale image= ",im_grwy.shape)
+print("resolution of Resized image= ",Resized.shape)
+print("size of croped image= ",imagecrop.shape)
+
+
+#For getting an output of our operations on image
+
+cv2.imshow('img',img)   #output of original image
+
+cv2.imshow('Grayscale',im_grwy)   #output of b/w image
+
+cv2.imshow('reszied',Resized)   #output of resized image
+
+cv2.imshow('flip',newimg)   #output of fliped image
+
+cv2.imshow('crop',imagecrop)   #output of croped image
+
+
+
+cv2.waitKey(0) #This for holding the image on the screen.
